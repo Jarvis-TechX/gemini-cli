@@ -7,6 +7,26 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "Debug CLI (Direct)",
+      "program": "${workspaceFolder}/packages/cli/dist/index.js",
+      "preLaunchTask": "npm: build",
+      "skipFiles": ["<node_internals>/**"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "env": {
+        "GEMINI_SANDBOX": "false",
+        "NODE_ENV": "development"
+      },
+      "sourceMaps": true,
+      "outFiles": ["${workspaceFolder}/packages/*/dist/**/*.js"],
+      "resolveSourceMapLocations": [
+        "${workspaceFolder}/packages/*/dist/**",
+        "!**/node_modules/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Build & Launch CLI",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "build-and-start"],
@@ -15,7 +35,17 @@
       "console": "integratedTerminal",
       "env": {
         "GEMINI_SANDBOX": "false"
-      }
+      },
+      "sourceMaps": true,
+      "outFiles": [
+        "${workspaceFolder}/packages/*/dist/**/*.js",
+        "${workspaceFolder}/scripts/**/*.js"
+      ],
+      "resolveSourceMapLocations": [
+        "${workspaceFolder}/packages/*/dist/**",
+        "!**/node_modules/**"
+      ],
+      "autoAttachChildProcesses": true
     },
     {
       "name": "Launch Companion VS Code Extension",
