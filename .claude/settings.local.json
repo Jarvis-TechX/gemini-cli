@@ -1,6 +1,16 @@
 {
   "permissions": {
-    "allow": ["Bash(test:*)"],
+    "allow": [
+      "Bash(test:*)",
+      "Read(//Users/mingyuye/.ssh/**)",
+      "Bash(ssh-keygen:*)",
+      "Bash(ssh-add:*)",
+      "Bash(cat:*)",
+      "Bash(git remote set-url:*)",
+      "Bash(ssh:*)",
+      "Bash(git push:*)",
+      "Bash(gh repo view:*)"
+    ],
     "deny": [],
     "ask": []
   }
